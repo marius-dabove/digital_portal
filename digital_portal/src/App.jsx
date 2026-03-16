@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import {BrowserRouter, Routes,Route, } from 'react-router-dom'
 import CitizenDashboard from './pages/dashboard/CitizenDashboard.jsx'
-import Landing from './Pages/Landing.jsx'
+import Landing from './pages/Landing.jsx'
 import Login from './Pages/auth/Login.jsx'
 import Register from './pages/auth/Register.jsx'
 import IssuerDashboard from './pages/dashboard/IssuerDashboard.jsx'
@@ -19,6 +19,11 @@ import AcademicPersonal from './pages/certificate/AcademicPersonal.jsx'
 import AcademicDetails from './pages/certificate/AcademicDetails.jsx'
 import IssuerGenerateAcademic from './pages/certificate/IssuerGenerateAcademic.jsx'
 import AcademicCertificatePreview from './pages/certificate/AcademicCertificatePreview.jsx'
+import IssuerReviewApplication from './pages/dashboard/IssuerReviewApplication.jsx'
+import AcademicReviewPage from './pages/certificate/AcademicReviewPage.jsx'
+import AdminDashboard from './components/Admin/AdminDashboard.jsx'
+
+
 
 
 
@@ -49,6 +54,10 @@ function App(){
       <Route path='/certificate/academic-details' element={<AcademicDetails/>}/>
       <Route path='/issuer/academic/generate'  element={<IssuerGenerateAcademic/>}/>
       <Route path='/academic/preview' element={<AcademicCertificatePreview/>}/>
+      <Route path='/issuer/review/:id' element={<IssuerReviewApplication/>}/>
+      <Route path='/certificate/academic/review-page' element={<AcademicReviewPage/>}/>
+
+        <Route path='/admin' element={<AdminDashboard />}/>
       
 
     </Routes>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import { FaHome, FaSignOutAlt, FaTasks, FaEye, FaCheck, FaTimesCircle, FaBan, FaHistory, FaCommentDots, FaCheckCircle } from "react-icons/fa";
 
 
@@ -16,10 +16,17 @@ const mockIssued = [
 const mockRevoked = [
  {id:4, requester: 'Emilie Atife', type :'birth  certificate' ,revoked:'20/02/2026', reason:'Duplicate identity'}
 ];
+const navigate = useNavigate();
+const handleReview = () =>{
+    navigate('/issuer/review/:id')
+};
 
 function IssuerDashboard (){
+    
     const [activeTab,setActiveTab]= useState('pending');
+   
     return(
+        
         <div className="flex h-screen bg-gray-50">
             <aside className="w-64 bg-teal-900 text-white flex flex-col">
                 <div className="p-6 border-b border-teal-800">
@@ -29,12 +36,19 @@ function IssuerDashboard (){
                 <nav className="flex-1 p-4 space-y-1">
                     <Link to ="/issuer/dashboard" className="flex items-center p-3 rounded hover:bg-teal-800">
                     <FaHome className="mr-3" />Dashboard</Link>
-                    <Link to ="/issuer/pending" className="flex items-center p-3 rounded hover:bg-teal-800">
-                    <FaTasks className="mr-3" />Pending Requests</Link>
-                    <Link to ="/issuer/issued" className="flex items-center p-3 rounded hover:bg-teal-800">
-                    <FaCheckCircle className="mr-3" />Issued Certificate</Link>
-                    <Link to ="/issuer/revoked" className="flex items-center p-3 rounded hover:bg-teal-800">
-                    <FaTimesCircle className="mr-3" />Revoked Certificate</Link>
+                    <button className={`p-3 flex items-center rounded hover:bg-teal-800 ${activeTab === 'pending' ?' text-white font semibold':'text-white'}`} 
+                    onClick={() => setActiveTab('pending')}
+                    >
+                        <FaTasks className="mr-2" />Pending requests</button>
+                        <button className={`p-3 flex items-center  hover:bg-teal-800 ${activeTab === 'issued' ?' text-white font semibold':'text-white'}`} 
+                    onClick={() => setActiveTab('issued')}
+                    >
+                        <FaCheckCircle className="mr-2" />Issued certificates</button>
+                     <button className={`p-3 flex items-center  hover:bg-teal-800 ${activeTab === 'revoked' ?' text-white font semibold':'text-white'}`} 
+                    onClick={() => setActiveTab('revoked')}
+                    >
+                        <FaTimesCircle className="mr-2" />Revoked Certificates</button>
+                    
                     <Link to ="/issuer/history" className="flex items-center p-3 rounded hover:bg-teal-800">
                     <FaHistory className="mr-3" />Audit History</Link>
                 </nav>
@@ -108,10 +122,10 @@ function IssuerDashboard (){
                                             {req.status}
                                         </span>
                                     </td>
-                                    <td className="px-6 py-4 text-right text-sm">
+                                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                         <div className="flex justify-end space-x-2">
-                                            <button className="p-2 text-teal-600 hover:text-teal-800">
-                                                <FaEye />
+                                            <button onClick={() => handleReview()}   className="text-blue-600 hover:text-blue-900 flex items-center gap-1" title="Review this request">
+                                                <FaEye/> Review
                                             </button>
                                              <button className="p-2 text-teal-600 hover:text-teal-800">
                                                 <FaCheck />
@@ -150,7 +164,7 @@ function IssuerDashboard (){
                                     <td className="px-6 py-4 text-sm text-gray-900">{item.issued}</td>
                                     <td className="px-6 py-4 text-right">  </td>
                                             <button className="p-2 text-teal-600 hover:text-teal-800">
-                                                <FaEye />
+                                                <FaEye /> Review
                                             </button>
                                              <button className="p-2 text-teal-600 hover:text-teal-800">
                                                 <FaCheck />

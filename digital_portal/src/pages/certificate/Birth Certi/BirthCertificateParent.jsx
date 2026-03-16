@@ -29,12 +29,12 @@ const handleNext = () =>{
         return;
 }
           navigate('/certificate/birth/documents');
-          navigate('/certificate/birth/personal')
+          
 };
 const handleSubmit = (e) => {
     e.preventDefault();
  console.log('Continue clicked-parent submitted trigerrered')
-
+       navigate('/certificate/birth/personal')
 
     if(!formData.motherSurnames){
     alert('Personal information saved');
@@ -137,7 +137,7 @@ return(
                     </div>
                      <div>
                             <label className="block text-sm font-medium text-gray-700 mb-1">Add Representative data</label>
-                             <select name="represntative" value={formData.representative} onChange={handleChange}  required
+                             <select name="representative" value={formData.representative} onChange={handleChange}  required
                             className=" w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
                                 <option value="tutor">Tutor</option>
                                 <option value="guardian">Guardian</option>

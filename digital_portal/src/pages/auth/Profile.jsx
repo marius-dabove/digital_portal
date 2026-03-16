@@ -44,7 +44,7 @@ function Profile(){
                             <div className="text-center pt-24 text-white">
                             <h1 className="text-4xl font-bold ">{user.fullName}</h1>
                             <p className="text-lg mt-2 opacity-90">{user.email}</p>
-                            <p className="text-sm mt-1">Member since{user.joined}</p></div>
+                            <p className="text-sm mt-1">Member since      {user.joined}</p></div>
                     </div>
                     <div className="flex justify-center gap-6 p-5">
                         <button onclick={handleEdit} className="px-3 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">

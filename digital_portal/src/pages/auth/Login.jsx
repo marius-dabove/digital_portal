@@ -4,6 +4,7 @@ import coatOfarms from '../../assets/images/coatOfarms.png'
 function Login(){
     const [phone,setPhone] = useState('');
     const [password,setPassword] = useState('');
+    const [username,setUsername] = useState('');
     const [error,setError] = useState('');
     const [loading,setLoading] = useState('');
 
@@ -12,13 +13,13 @@ function Login(){
         setError('');
         setLoading(true);
 
-        if(!phone.trim ||!password.trim()){
-            setError('please fill the both phonenumber and password');
+        if(!phone.trim ||!password.trim() || !username.trim()){
+            setError('please fill the both phonenumber, password & username');
             setLoading(false);
             
         }
-        if(!phone.startsWith('+237')&& !phone.startsWith('6')){
-            setError('phone number should start with+237 or 6');
+        if(!phone.startsWith('+')&& !phone.startsWith('6')){
+            setError('phone number should start with + or 6');
             setLoading(false);
             
         }
@@ -50,10 +51,17 @@ function Login(){
                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition" required
 />                    </div>
                      <div className="mb-6">
+                      <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-2">
+                         Username
+                         </label>  
+                         <input id="username" type="tel" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="username"
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition" required />
+                     </div>
+                     <div className="mb-6">
                       <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
                          Password
                          </label>  
-                         <input id="password" type="tel" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="password"
+                         <input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="password" 
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition" required />
                      </div>
                      <button type="submit" disabled={loading} className={`w-full px-4 py-3 bg-teal-600 text-white font-medium rounded-lg hover:bg-gray-800 transition duration-200 ${loading ? 'opacity-70 cursor-not-allowed':'' }`} >

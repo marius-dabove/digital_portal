@@ -49,7 +49,7 @@ const handleSubmit = (e) => {
     });
 
     navigate('/certificate/birth/parent');
-    navigate('/certificate/birth')
+    //navigate('/certificate/birth')
 };
 return(
     <div className="min-h-screen bg-gray-50 pb-20">
@@ -281,7 +281,7 @@ return(
                     <button onClick={() => navigate('/certificate/birth')} className="px-8 py-3 border border-gray-300 rounded-lg text-gray-700 font-medium hover:bg-gray-50">
                         Back
                     </button>
-                    <button type="submit" className="px-10 py-3 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700">
+                    <button onClick={() => navigate('/certificate/birth/parent')} className="px-10 py-3 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700">
                         Continue
                     </button>
                 </div>

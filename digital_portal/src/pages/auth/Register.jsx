@@ -35,7 +35,7 @@ function Register() {
     }
     };
     return(
-        <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4 py-12">
+        <div className="min-h-screen flex items-center justify-center bg-gray-50 px-6 py-12">
             <div className="w-full max-w-md bg-white rounded-xl shadow-lg overflow-hidden">
                 <div className="bg-teal-700 text-white py-6 px-8 text-center">
                     <h2 className="text-2xl font-bold">Digital E-certificate Portal</h2>
@@ -78,7 +78,8 @@ function Register() {
                         </div>
                         <button type="submit" disabled={loading} className={`w-full py-3 px-4 bg-teal-600 text-white font-medium rounded-lg hover:bg-teal-800 transition
                         ${loading ? 'opacity-70 cursor-not-allowed':''}`}>
-                            {loading ? 'creating account' : 'Register'}</button> 
+                            {loading ? 'create account' : 'Register'}
+                            </button> 
                         <div className="mt-6 text-center text-sm">
                             <p className="text-gray-600">Already have an account? {''}
                                 <a href="/login" className="text-teal-600 hover:underline">

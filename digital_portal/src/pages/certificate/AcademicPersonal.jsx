@@ -6,7 +6,7 @@ function AcademicPersonal(){
     const {state} = useLocation();
     const academicData = state?.academicData || {};
 
-    const [formData,setFormData] = useState({
+    const [form,setForm] = useState({
         givenNames:'',
         surnames:'',
         gender:'Male',
@@ -40,25 +40,28 @@ function AcademicPersonal(){
                 <div className="w-10 h-10 rounded-full bg-gray-300 text-white flex items-center justify-center font-bold">3
                 </div><div className="w-20 h-1 bg-gray-300"></div>
                 <div className="w-10 h-10 rounded-full bg-gray-300 text-white flex items-center justify-center font-bold">4</div>
-                
+               
                 </div>
+                 <p className="text-center text-sm text-gray-500 mt-2">
+                step 2 of 4 Personal Information 
+            </p>
                  <h1 className="text-3xl font-bold text-center mb-10">PERSONAL INFORMATION</h1>
                  <div className="space-y-6">
                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label className="block text-sm font-medium text-gray-700 mb-1">Given names</label>
-                            <input type="text" name="givenNames" value={formData.givenNames} onChange={handleChange} placeholder="Given names" required
+                            <input type="text" name="givenNames" value={form.givenNames} onChange={handleChange} placeholder="Given names" required
                             className="w-full px-4 py-3 border border-gray-300 rounded-md  focus:ring-green-500 focus:border-green-500"/>
                         </div>
 
                         <div>
                             <label className="block text-sm font-medium text-gray-700 mb-1">Surnames</label>
-                            <input type="text" name="surnames" value={formData.surnames} onChange={handleChange} placeholder="Surname(s)" required
+                            <input type="text" name="surnames" value={form.surnames} onChange={handleChange} placeholder="Surname(s)" required
                             className="w-full px-4 py-3 border border-gray-300 rounded-lg  focus:ring-green-500 focus:border-green-500"/>
                         </div>
                         < div>
                             <label className="block text-sm font-medium text-gray-700 mb-1">Gender</label>
-                            <select name="gender" value={formData.gender} onChange={handleChange}  required
+                            <select name="gender" value={form.gender} onChange={handleChange}  required
                             className=" w-full px-4 py-3 border border-gray-300 rounded-md  focus:ring-green-500 focus:border-green-500">
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
@@ -66,10 +69,10 @@ function AcademicPersonal(){
                         </div>
                         < div>
                             <label className="block text-sm font-medium text-gray-700 mb-1">Date of Birth</label>
-                            <input type="text" name="dob" value={formData.dob} onChange={handleChange} placeholder="dd mm yyyy"required
+                            <input type="text" name="dob" value={form.dob} onChange={handleChange} placeholder="dd mm yyyy"required
                             className=" w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"/>
                             <label className="flex items-center mt-2 text-sm text-gray-600">
-                                <input type="checkbox" name="unknownDob" checked={formData.unknownDob} onChange={handleChange} className="mr-2 h-4 w-4 text-teal-600 focus:ring-teal-500 border-gray-300 rounded"/>
+                                <input type="checkbox" name="unknownDob" checked={form.unknownDob} onChange={handleChange} className="mr-2 h-4 w-4 text-teal-600 focus:ring-teal-500 border-gray-300 rounded"/>
                                 I don't know my date of birth
                             </label>
                         </div>
@@ -77,24 +80,24 @@ function AcademicPersonal(){
                         <label className="block text-sm font-medium text-gray-700 mb-1">
                             Phone Number
                         </label>
-                        <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required
+                        <input type="tel" name="phone" value={form.phone} onChange={handleChange} required
                             className="w-full px-4 py-3 border border-gray-300 rounded-md  focus:ring-green-500 focus:border-green-500"/>
                         </div>
                         <div>
                             <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                            <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email address" required
+                            <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="Email address" required
                             className="w-full px-4 py-3 border border-gray-300 rounded-md  focus:ring-green-500 focus:border-green-500"/>
                         </div>
                         <div>
                             <label className="block text-sm font-medium text-gray-700 mb-1">Nationality *</label>
-                            <input type="text" name="nationality" value={formData.nationality} onChange={handleChange} placeholder=" country" required
+                            <input type="text" name="nationality" value={form.nationality} onChange={handleChange} placeholder=" country" required
                             className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"/>
                         </div>
                         <div className="md:col-span-2">
                             <label className="block text-sm font-medium text-gray-700 mb-1">
                                 Residential address
                             </label>
-                            <textarea name="address" value={formData.address1} onChange={handleChange} placeholder="e.g  bonaberi Douala" rows={2}
+                            <textarea name="address1" value={form.address1} onChange={handleChange} placeholder="e.g  bonaberi Douala" rows={2}
                             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-green-50 focus:border-green-500"/>
                         </div>
                         </div>

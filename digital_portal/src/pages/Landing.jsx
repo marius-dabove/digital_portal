@@ -23,9 +23,9 @@ function Landing(){
                         <option value="FR">Français</option>
                      </select>
                      <div className="flex space-x-3"> 
-                        <a href="/Login" className="px-4 py-2 bg-white text-teal-600 font-medium rounded hover:bg-gray-100 transition">
+                        <a href="/Login" className="px-2 py-2 bg-white text-teal-600 font-medium rounded hover:bg-gray-100 transition">
                         {t('Log In','SE CONNECTER')}</a>
-                         <a href="/register" className="px-5 py-2 bg-white text-teal-600 font-medium rounded hover:bg-gray-100 transition">
+                         <a href="/register" className="px-2 py-2 bg-white text-teal-600 font-medium rounded hover:bg-gray-100 transition">
                         {t('REGISTER NOW','ENREGISTREZ-VOUS')}</a>
                      </div>
                 </div>
@@ -43,12 +43,12 @@ function Landing(){
                 {t('Digital Portal for E-certificates and Official Documents','PORTAIL NUMERIQUE DES CERTIFICAT OFFICIELS')}</h3>
                 <p className="text-lg md:text-xl text-gray-950 mb-10 max-w-2xl">
                  {t('Securely request, acess , download and verify your official certificate anytime,anywhere',
-                    'Demandez, accedez ,telechargez et verifiez vos certificats officiels en toute securite.')}
+                    'Demandez, accédez ,teléchargez et verifiez vos certificats officiels en toute securité.')}
                </p>
               <div className="flex flex-col sm:flex-row gap-5">
-                <a href="/register" className="px-10 py-5 bg-teal-600 text-white text-xl font-semibold rounded-lg shadow-lg hover:bg-white transition transform hover:-ttranslate-y-1">
+                <a href="/register" className="px-10 py-5 bg-teal-600 text-white text-xl font-semibold rounded-lg shadow-lg hover:bg-gray-500 transition transform hover:-ttranslate-y-1">
                 {t('REGISTER NOW',' ENREGISTREZ-VOUS')}</a>
-                <a href="/Login" className="px-10 py-5 bg-teal-600 text-white text-xl font-semibold rounded-lg shadow-lg hover:bg-white transition transform hover:-ttranslate-y-1">
+                <a href="/Login" className="px-10 py-5 bg-teal-600 text-white text-xl font-semibold rounded-lg shadow-lg hover:bg-gray-500 transition transform hover:-ttranslate-y-1">
                 {t('LOG IN','SE CONNECTER')}</a>
               </div>
 

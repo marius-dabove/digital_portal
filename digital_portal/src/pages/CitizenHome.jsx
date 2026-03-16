@@ -39,7 +39,7 @@ function CitizenHome(){
                     text-center hover:shadow-2xl transition transform hover:-translate-y-2 border border-teal-100">
                         <FaBaby className="text-teal-600 text-7xl mb-6" />
                         <h2 className="text-2xl font-bold text-black mb-3">Birth Certificate</h2>
-                        <p className="text-gray-700 text-lg">Apply for birth, replacement of Affidavit of bith</p>
+                        <p className="text-gray-700 text-lg">Apply for e-birth certificate, Replacement of Affidavit of birth</p>
                     </Link>
 
                      <Link to ="/certificate/academic" className="bg-sky-100 rounded-2xl shadow-xl p-10 flex flex-col items-center 

@@ -121,23 +121,12 @@ function IssuerGenerateCertificate() {
                     </div>
                      <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">Region/Region</label>
-                        <select name="region" value={FormData.region} onChange={handleChange} required
-                        className="w-full px-4 py-2 border rounded-md focus:ring-green-500 focus:border-green-500">
-                        <option value="">Select</option>
-                             <option value="">Extreme-Nord / Far-North</option>
-                              <option value="">Nord / North</option>
-                              <option value="">Extreme-Nord / Far-North</option>
-                              <option value="">Adamaoua / Adamaoua</option>
-                              <option value="">Centre / Centre</option>
-                              <option value="">Est / East</option>
-                              <option value="">Littoral / Littoral</option>
-                              <option value="">Nord-ouest / North-west</option>
-                              <option value="">Sud / South</option>
-                              <option value=""> Sud-ouest / South-west </option>
-                              <option value="">    Ouest / West </option>
+                        <input type="text" name="region" value={FormData.region} onChange={handleChange} required
+                        className="w-full px-4 py-2 border rounded-md focus:ring-green-500 focus:border-green-500"/>
+                        
                               
                               
-                              </select>
+                              
                     </div>
                      <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">Departement/ Division</label>

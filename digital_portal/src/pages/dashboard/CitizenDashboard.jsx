@@ -16,22 +16,36 @@ const mockPendingRequests = [
    {id:3,type:'Academic Certificate', submitted:'20/02/2026', status:'In review'}
 ]
 const mockNotifications = [
-    {id:1, message: 'your bith certificate is ready for dowmload', date: '21/02/2026'}
+    {id:1, message: 'your birth certificate is ready for download', date: '21/02/2026'}
 ]
 
 function CitizenDashboard(){
     const [activeTab,setActiveTab] = useState('documents');
     const navigate = useNavigate();
+    const userName ='Marius';
+
+    const [documents, setDocuments] = useState([]);
+    const [pendingRequest, setPendingRequest] = useState([]);
+    const [notifications, setNotifications] = useState([]);
+    const [loading, setLoading] = useState(true);
     return(
-        <div className="flex h-screen bg-gray-300">
-            <Sidebar />
+        <div className="flex h-screen bg-white">
+            <Sidebar
+            activeTab={activeTab}
+            onTabChange={setActiveTab}
+            
+            />
 
         <main className="flex-1 p-6 overflow-y-auto">
             <header className="flex justify-between items-center mb-6">
-                <h1 className="text-3xl font-bold text-teal-800">Citizen Dashboard</h1>
-                <Button variant="primary" onclick={() => navigate('/home')}>
+                <h1 className="text-3xl font-bold text-teal-700">Citizen Dashboard</h1>
+                <h1 className="text-3xl md:text-2xl font-bold mb-3">
+                    WELCOME, {userName.toUpperCase}
+                </h1>
+                <div className="bg-teal-600 text-black">
+                <Button variant="primary"  onclick={() => navigate('/home')}>
                     New Certificate Request
-                </Button>
+                </Button></div>
             </header>
             <div className="flex space-x-4 mb-6">
                 <button className={`pb-2 ${activeTab === 'documents'? 'border-b-2 border-teal-600 text-teal-600 font-bold ': 'text-gray-600'}`} onclick={()=> setActiveTab('documents')}>

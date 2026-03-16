@@ -15,7 +15,7 @@ function CertificatePreview(){
         registrationOffice:'Douala v civil status Office',
         issuanceDate: '25/02/2026',
         birthDate: '15/06/2003',
-        registrationNumber:  'BIR-20260217-008673',
+        registrationNumber:  '',
         sex:'Male',
         childName:'',
         placeOfBirth:'Edea,south',

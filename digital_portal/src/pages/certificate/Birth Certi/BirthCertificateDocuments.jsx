@@ -15,6 +15,8 @@ function BirthCertificateDocuments(){
         const selectedFiles = Array.from(e.target.files);
         setFiles(selectedFiles);
         setError('')
+
+        //navigate('/certificate/birth/parent')
     };
 
     const handleSubmit = (e) => {
@@ -27,7 +29,7 @@ function BirthCertificateDocuments(){
          
     console.log('Documents submitted - progress would update here')
        navigate('/certificate/birth/review-page');
-       navigate('/certificate/birth/parents')
+       
     
     }
     

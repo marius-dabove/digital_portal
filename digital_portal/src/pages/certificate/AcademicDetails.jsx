@@ -21,7 +21,7 @@ function AcademicDetails(){
     });
     const handleChange = (e) =>{
          const{name,value,type,checked} = e.target;
-  setFormData((prev) => ({...prev, [name]: value
+  setForm((prev) => ({...prev, [name]: value
   }));
     };
     const handleFileChange = (e) => {
@@ -43,7 +43,7 @@ function AcademicDetails(){
             alert('resultslip document required');
             return;
         }
-        navigate('/certificate/academic/review',{
+        navigate('/certificate/academic/review-page',{
             state:{
                 academicData,
                 personalData,
@@ -96,7 +96,7 @@ return(
                     <label className="block text-sm font-nedium text-gray-700 mb-1">
                         Class / Grade
                     </label>
-                    <select name="certificateType" value={form.classGrade} onChange={handleChange} 
+                    <select name="classGrade" value={form.classGrade} onChange={handleChange} 
                     className="w-full px-4 py-2 border rounded-md focus:ring-green-500"required>
                         <option value="GCE">First class</option>
                          <option value="BAC">Second Class Upper </option>
@@ -110,7 +110,7 @@ return(
                     <label className="block text-sm font-nedium text-gray-700 mb-1">
                       Graduation Status
                     </label>
-                    <select name="certificateType" value={form.graduationStatus} onChange={handleChange} 
+                    <select name="graduationStatus" value={form.graduationStatus} onChange={handleChange} 
                     className="w-full px-4 py-2 border rounded-md focus:ring-green-500"required>
                         <option value="GCE">Completed</option>
                          <option value="BAC">In progress </option>
@@ -121,7 +121,7 @@ return(
                         <label className="block text-sm font-medium text-gray-700 mb-1">
                                 Transcript / Certificate Number
                         </label>
-                        <input type="text" name="transcript number" value={form.transcriptNumber} onChange={handleChange} placeholder="e.g 2020/12345"
+                        <input type="text" name="transcriptNumber" value={form.transcriptNumber} onChange={handleChange} placeholder="e.g 2020/12345"
                         className="w-full px-4 py-3 boorder border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition"/>
 
                     </div>
@@ -129,7 +129,7 @@ return(
                             <label className="block text-sm font-medium text-gray-700 mb-1">
                                 Additional Information
                             </label>
-                            <textarea name="address" value={form.additionalInfo} onChange={handleChange} placeholder="e.g  bonaberi Douala" rows={2}
+                            <textarea name="additionalInfo" value={form.additionalInfo} onChange={handleChange} placeholder="e.g  bonaberi Douala" rows={2}
                             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-green-50 focus:border-green-500"/>
                         </div>
             </div>
@@ -145,7 +145,7 @@ return(
                     <div className="flex items-center gap-4">
                         <label className="cursor-pointer bg-gray-100 hover:bg-gray-200 px-5 py-3 rounded-lg border border-gray-300 transition">
                             <span className="text-gray-700">Choose Transcript File</span>
-                            <input type="file" name="transcriptfile" accept=".pdf,.jpg,.jpeg,.png" onChange={handleFileChange} className="hidden" required/>
+                            <input type="file" name="transcriptFile" accept=".pdf,.jpg,.jpeg,.png" onChange={handleFileChange} className="hidden" required/>
                         </label>
                         <span className="text-sm text-gray-500">
                             {form.transcriptFile ? form.transcriptFile.name : 'No file chosen'}

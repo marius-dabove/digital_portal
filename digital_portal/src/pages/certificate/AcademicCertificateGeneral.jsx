@@ -70,21 +70,21 @@ function AcademicCertificateGeneral() {
                    placeholder="e.g University of Douala" className="w-full px-4 py-2 border rounded-md focus:ring-green-500"required />
             </div>
             <div>
-                    <label className="block text-sm font-nedium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
                         Program / Course of study
                     </label>
                     <input type="text" name="program" value={form.program} onChange={handleChange} 
                    placeholder="e.g computer engineering, science or Arts ,technical" className="w-full px-4 py-2 border rounded-md focus:ring-green-500" required />
             </div>
             <div>
-                    <label className="block text-sm font-nedium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
                         Graduation / Completion Year
                     </label>
-                    <input type="number" name="graduationYear" value={form.graduationYear} onChange={handleChange} 
+                    <input type="text" name="graduationYear" value={form.graduationYear} onChange={handleChange} 
                    placeholder="e.g 2024" required className="w-full px-4 py-2 border rounded-md focus:ring-green-500"  />
             </div>
             <div>
-                    <label className="block text-sm font-nedium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
                         Reason for Request (optional)
                     </label>
                     <textarea  name="reason" value={form.reason} onChange={handleChange} 
