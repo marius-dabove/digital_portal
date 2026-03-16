@@ -1,5 +1,5 @@
 import React from "react";
-import {NavLink} from 'react-router-dom'
+import {NavLink, useNavigate} from 'react-router-dom'
 import { LayoutDashboard,Clock,Award,Ban,ShieldCheck,Users,Building2,BarChart3,Settings,LogOut, } from "lucide-react";
 
 
@@ -17,11 +17,15 @@ const navItems = [
 
 ];
 function Sidebar() {
+    const navigate = useNavigate();
+    const handleLogout = () =>{
+    navigate('/')
+   };
     return (
-        <div className="flex-h-full w-64 flex-col">
+        <aside className="w-64 bg-teal-950  text-white flex flex-col p-4 space-y-3 ">
             <div className="border-b p-6">
-                <h2 className="text-xl font-semibold tracking-tight text-primary">E-CERTI ADMIN</h2>
-                <p className="text-xs text-muted-foreground mt-1">Cameroon</p>
+                <h2 className="text-xl font-semibold">E-CERTI ADMIN</h2>
+                <p className="text-xs text-center mt-1">Cameroon</p>
             </div>
             <nav className="flex-1 px-3 py-6 space-y-1">
                 {navItems.map((items) =>(
@@ -42,10 +46,10 @@ function Sidebar() {
                 ))}
             </nav>
             <div className="border-t p-4">
-                <button className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30 transition-colors">
+                <button  onClick={() => handleLogout()} className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-green-600 hover:bg-red-50 dark:hover:bg-red-950/30 transition-colors">
                 Sign Out</button>
             </div>
-        </div>
+        </aside>
     );
 }
 

@@ -1,7 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import {Bell,LogOut} from 'lucide-react'
 
 function Hero({title}) {
+    const navigate = useNavigate();
+    const handleLogout = () =>{
+    navigate('/')
+   };
     return(
         <header className='flex h-16 items-center justify-between border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 px-6'>
                     <h1 className='text-xl font-semibold'>{title}</h1>
@@ -17,7 +22,7 @@ function Hero({title}) {
                                 <p className='text-xs text-gray-500 dark:text-gray-400'>Administrator</p>                           
                                  </div>
                         </div>
-                        <button className='p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-red-600 transition-colors'><LogOut className='w-5 h-5' /></button>
+                        <button onClick={() => {(handleLogout)}}   className='p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-green-600 mr-3 flex transition-colors'><LogOut className='w-5 h-5 ' />    sign out</button>
                     </div>
         </header>
     )

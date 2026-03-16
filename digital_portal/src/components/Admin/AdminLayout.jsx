@@ -5,18 +5,20 @@ import Hero from "./Hero.jsx";
 
 function AdminLayout ({children, pageTitle ='Dashboard'}) {
     return(
-        <div className="flex-h-screen bg-background text-foreground">
-            <div className=" hidden md:block border-r  bg-card">
+        <div className="flex-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 ">
+            <div className="flex-1 p-6 overflow-y-auto">
+                 <Hero title={pageTitle} />
+             <div className=" hidden md:flex   border-r  ">
         <Sidebar/>
-            </div>
-            <div className="flex flex-1 flex-col">
-                 
-               <Hero title={pageTitle} />
-                <main className="flex-1 overflow-auto p-4 md:p-6 lg:p-8">
-                    <div className="mx-auto ` max-w-[1400px]`">
+        <main className="flex-1 overflow-y-auto p-4 md:p-6">
+                    <div className="mx-auto max-w-3xl ">
                         {children}
                     </div>
+                       
                 </main>
+            </div>
+            
+              
             </div>
         </div>
     )

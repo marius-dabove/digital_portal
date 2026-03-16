@@ -16,14 +16,15 @@ const mockIssued = [
 const mockRevoked = [
  {id:4, requester: 'Emilie Atife', type :'birth  certificate' ,revoked:'20/02/2026', reason:'Duplicate identity'}
 ];
-const navigate = useNavigate();
-const handleReview = () =>{
-    navigate('/issuer/review/:id')
-};
+
 
 function IssuerDashboard (){
     
     const [activeTab,setActiveTab]= useState('pending');
+    const navigate = useNavigate();
+   const handleReview = () =>{
+    navigate('/issuer/review/:id')
+   };
    
     return(
         
