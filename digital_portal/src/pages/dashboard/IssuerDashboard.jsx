@@ -125,7 +125,7 @@ function IssuerDashboard (){
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                         <div className="flex justify-end space-x-2">
-                                            <button onClick={() => handleReview()}   className="text-blue-600 hover:text-blue-900 flex items-center gap-1" title="Review this request">
+                                            <button onClick={() => handleReview()}   className="text-blue-600 hover:text-blue-900 flex items-center gap-1" title="Review this request dear issuer and take decision">
                                                 <FaEye/> Review
                                             </button>
                                              <button className="p-2 text-teal-600 hover:text-teal-800">

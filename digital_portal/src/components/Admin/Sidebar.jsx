@@ -24,7 +24,7 @@ function Sidebar() {
     return (
         <aside className="w-64 bg-teal-950  text-white flex flex-col p-4 space-y-3 ">
             <div className="border-b p-6">
-                <h2 className="text-xl font-semibold">E-CERTI ADMIN</h2>
+                <h2 className="text-2xl font-bold text-center">E-CERTI ADMIN</h2>
                 <p className="text-xs text-center mt-1">Cameroon</p>
             </div>
             <nav className="flex-1 px-3 py-6 space-y-1">
