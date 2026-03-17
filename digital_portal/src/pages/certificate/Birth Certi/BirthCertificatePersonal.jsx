@@ -1,5 +1,5 @@
 import { Phone } from "lucide-react";
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 
 function BirthCertificatePersonal(){
@@ -7,6 +7,15 @@ function BirthCertificatePersonal(){
 
 
     const [progress, setProgress] = useState([2,0,0,0])
+    const [division, setDivisions] = useState("");
+    const [region, setRegions] = useState("")
+
+    const regionData = {
+        Littoral: ["Wouri", "Nkam"],
+        Center: ["Mfoundi", "Nyong-et-Kelle"]
+    }
+
+    const divisions = regionData[region] || []
 
     const [formData,setFormData] = useState({
         givenNames:'',
@@ -26,6 +35,10 @@ function BirthCertificatePersonal(){
         residenceLocation:'',
         street:'',
         occupation:'',
+});
+
+useEffect(() => {
+    
 });
 
 const handleChange = (e) => {
@@ -152,7 +165,7 @@ return(
                          < div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         < div>
                             <label className="block text-sm font-medium text-gray-700 mb-1">Birth Region</label>
-                            <select name="birthRegion" value={formData.birthRegion} onChange={handleChange}  required
+                            {/* <select name="birthRegion" value={formData.birthRegion} onChange={handleChange}  required
                             className=" w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
                                 <option>FAR-NORTH</option>
                                 <option>NORTH</option>
@@ -164,17 +177,51 @@ return(
                                 <option>WEST</option>
                                 <option>SOUTH-WEST</option>
                                 <option>SOUTH</option>
-                                
+                            
+                            </select> */}
+
+                            <select
+                                value={region}
+                                onChange={(e) => {
+                                    setRegions(e.target.value);
+                                    setDivisions("");
+                                }}
+                            >
+                                <option value="">Select a region</option>
+                                {
+                                    Object.keys(regionData).map((r) =>(
+                                        <option key={r} value={r}>
+                                            {r}
+                                        </option>
+                                    ))
+                                }
 
                             </select>
                         </div>
                         < div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Birth Division</label>
+                            {/* <label className="block text-sm font-medium text-gray-700 mb-1">Birth Division</label>
                             <select name="birth Division" value={formData.birthDivision} onChange={handleChange}  required
                             className=" w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
                                 <option>Division</option>
                                
-                                </select>
+                            </select> */}
+
+                            <select
+                                value={division}
+                                onChange={(e) => {setDivisions(e.target.value); }}
+                            >
+                                <option value="">Select a Division</option>
+                                {
+                                    divisions.map((d, index) =>(
+                                        <option key={index} value={d}>
+                                            {d}
+                                        </option>
+                                    ))
+                                }
+
+                            </select>
+
+
                         </div>
                          <div>
                             <label className="block text-sm font-medium text-gray-700 mb-1">Birth place</label>

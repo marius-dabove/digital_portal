@@ -22,6 +22,9 @@ import AcademicCertificatePreview from './pages/certificate/AcademicCertificateP
 import IssuerReviewApplication from './pages/dashboard/IssuerReviewApplication.jsx'
 import AcademicReviewPage from './pages/certificate/AcademicReviewPage.jsx'
 import AdminDashboard from './components/Admin/AdminDashboard.jsx'
+import ManageIssuers from './components/Admin/ManageIssuers.jsx'
+import Analytics from './components/Admin/Analytics.jsx'
+import Users from './components/Admin/Users.jsx'
 
 
 
@@ -58,6 +61,10 @@ function App(){
       <Route path='/certificate/academic/review-page' element={<AcademicReviewPage/>}/>
 
         <Route path='/admin' element={<AdminDashboard />}/>
+        <Route path='/admin/users' element={<Users/>}/>
+        <Route path='/admin/issuers' element={<ManageIssuers/>}/>
+         <Route path='/admin/analytics' element={<Analytics/>}/>
+          
       
 
     </Routes>
