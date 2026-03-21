@@ -8,6 +8,7 @@ function BirthCertificatePersonal(){
 
     const [progress, setProgress] = useState([2,0,0,0])
     const [division, setDivisions] = useState("");
+    const [subdivision, setSubdivisions] = useState("");
     const [region, setRegions] = useState("")
 
     const regionData = {
@@ -57,10 +58,82 @@ SOUTH:[
 "Mvila",
 "Océan",
 "Vallée-du-Ntem"],
-CENTRE: ["Mfoundi", "Nyong-et-Kelle","Mbam et kim","Mbam et Inobou","Lekié","Haute-Sanaga","Nyong-et-Soo","Mefou-et Afamba","Nyong-et-MFoumou"]
+CENTRE: ["Mfoundi", "Nyong-et-Kelle","Mbam et kim","Mbam et Inobou","Lekié","Haute-Sanaga","Nyong-et-Soo","Mefou-et Afamba","Nyong-et-MFoumou"],
     }
 
+const divisionData = {
+Moungo : ["Nkongsamba 1", "Nkongsamba 2", "Nkongsamba 3", "Mbanga", "Loum", "Manjo", "Njombé-Penja", "Bare-Bakem", "Dibombari", "Ebone", "Melong", "Mombo"],
+Nkam : ["Yabassi", "Nkondjock", "Bekoko", "Nord-Makombé"],
+SanagaMaritime : ["Édéa 1", "Édéa 2", "Dizangué", "Mouanko", "Ngwei", "Massock-Songloulou", "Ndom", "Ngambe", "Pouma", "Nyanon"],
+Wouri : ["Douala 1", "Douala 2", "Douala 3", "Douala 4", "Douala 5", "Douala 6"],
+
+Diamaré : ["Maroua 1", "Maroua 2", "Maroua 3", "Bogo", "Dargala", "Gawel", "Meri", "Ndoulo", "Petté"],
+LogoneetChari : ["Kousséri", "Logone-Birni", "Makary", "Goulfey", "Blangoua", "Darak", "Fotokol", "Hile-Alifa", "Waza", "Zina"],
+MayoDanay : ["Yagoua", "Maga", "Guéré", "Gobouo", "Kalfou", "Kar-Hay", "Wina", "Datcheka", "Gobo", "Kai-Kai", "Tchatibali"],
+MayoKani : ["Kaélé", "Guidiguis", "Moutourwa", "Mindif", "Moulvoudaye", "Touloum", "Porhi"],
+MayoSava : ["Mora", "Kolofata", "Tokombéré"],
+MayoTsanaga : ["Mokolo", "Bourrha", "Koza", "Mogodé", "Mayo-Moskota", "Souledé-Roua", "Hina"],
+
+
+Boyo : ["Fundong", "Belo", "Bum", "Njinikom"],
+Bui : ["Kumbo", "Jakiri", "Mbiame", "Nkum", "Noni", "Oku"],
+DongaMantung : ["Nkambe", "Ndu", "Ako", "Misaje", "Nwa"],
+Menchum : ["Wum", "Furu-Awa", "Menchum Valley", "Zhoa"],
+Mezam : ["Bamenda 1", "Bamenda 2", "Bamenda 3", "Bafut", "Bali", "Santa", "Tubah"],
+Momo : ["Mbengwi", "Andek", "Batibo", "Njikwa", "Widikum-Boffe"],
+Ngoketunjia : ["Ndop", "Babessi", "Balikumbat"],
+
+
+Bamboutos : ["Mbouda", "Galim", "Batcham", "Babadjou"],
+HautNkam : ["Bafang", "Bana", "Bakou", "Bandja", "Kékem", "Petit-Nkam", "Yabassi"],
+HautsPlateaux : ["Baham", "Bamendjou", "Bansoa", "Bangou"],
+KoungKhi : ["Bandjoun", "Bayangam", "Demdeng"],
+Menoua : ["Dschang", "Santchou", "Fongo-Tongo", "Foréké-Dschang", "Penka-Michel", "Nkong-Ni"],
+Mifi : ["Bafoussam 1", "Bafoussam 2", "Bafoussam 3"],
+Ndé : ["Bangangté", "Bassamba", "Bazou", "Tonga"],
+Noun : ["Foumban", "Foumbot", "Bangourain", "Koutaba", "Kouoptamo", "Magba", "Malentouen", "Massangam", "Njimom"],
+
+
+Fako : ["Limbe 1", "Limbe 2", "Limbe 3", "Buea", "Muyuka", "Tiko", "West Coast"],
+KoupéManengouba : ["Bangem", "Tombel", "Nguti"],
+Lebialem : ["Menji", "Alou", "Wabane"],
+Manyu : ["Mamfe", "Akwaya", "Eyumodjock", "Upper Bayang"],
+Meme : ["Kumba 1", "Kumba 2", "Kumba 3", "Konye", "Mbonge"],
+Ndian : ["Mundemba", "Bamusso", "Isanguele", "Kombo-Abedimo", "Kombo-Itindi", "Dikome-Balue", "Ekondo-Titi", "Idabato", "Toko"],
+
+BoumbaetNgoko : ["Yokadouma", "Moloundou", "Gari-Gombo", "Salapoumbé"],
+HautNyong : ["Abong-Mbang", "Doumé", "Lomié", "Messaména", "Nguelemendouka", "Dimako", "Somalomo", "Angossas", "Atok", "Doumaintang", "Mboma", "Messok", "Mindourou", "Ngoyla"],
+Kadey : ["Batouri", "Ndelele", "Kette", "Ouli", "Kentzou", "Ngoura", "Mbang"],
+LometDjérem : ["Bertoua 1", "Bertoua 2", "Bélabo", "Bétaré-Oya", "Diang", "Garoua-Boulaï", "Mandjou", "Ngoura"],
+
+HauteSanaga : ["Nanga-Eboko", "Minta", "Bibey", "Lembe-Yezoum", "Nkoteng", "Mbandjock", "Shanga"],
+Lekié : ["Monatélé", "Obala", "Evodoula", "Ebebda", "Batchenga", "Sa'a", "Okola", "Lobo", "Elig-Mfomo"],
+MbametInoubou : ["Bafia", "Ndikiniméki", "Makénéné", "Kon-Yambetta", "Nitoukou", "Ombessa", "Bokito", "Deuk", "Goufan"],
+MbametKim : ["Ntui", "Ngoro", "Yoko", "Ngambè-Tikar", "Mbangassina"],
+MéfouetAfamba : ["Mfou", "Awaé", "Soa", "Afamba", "Alen-Mbe", "Esse", "Olanguina"],
+MéfouetAkono : ["Ngoumou", "Akono", "Bikok", "Mbankomo"],
+Mfoundi : ["Yaoundé 1", "Yaoundé 2", "Yaoundé 3", "Yaoundé 4", "Yaoundé 5", "Yaoundé 6", "Yaoundé 7"],
+NyongetKéllé : ["Éséka", "Makak", "Messondo", "Dibang", "Ngog-Mapubi", "Matomb", "Bondjock", "Biyouha", "Nguibassal", "Bot-Makak"],
+NyongetMfoumou : ["Akonolinga", "Ayos", "Endom", "Kobdombo", "Mengang"],
+NyongetSoo : ["Mbalmayo", "Ngomedzap", "Akono", "Dzeng", "Mengueme", "Nkolmetet"],
+
+
+Djérem : ["Tibati", "Ngaoundal"],
+FaroetDéo : ["Tignère", "Galim-Tignère", "Mayo-Baléo", "Kontcha"],
+MayoBanyo : ["Banyo", "Bankim", "Mayo-Darlé"],
+Mbéré : ["Meiganga", "Djohong", "Dir", "Ngaoui"],
+Vina : ["Ngaoundéré 1", "Ngaoundéré 2", "Ngaoundéré 3", "Belel", "Mbe", "Ngan-Ha", "Nyambaka", "Martap"],
+
+Bénoué : ["Garoua 1", "Garoua 2", "Garoua 3", "Bibemi", "Dembo", "Lagdo", "Pitoa", "Tourua", "Baschéo", "Gashiga"],
+Faro : ["Poli", "Beka"],
+MayoLouti : ["Guider", "Figuil", "Mayo-Oulo"],
+MayoRey : ["Tcholliré", "Rey-Bouba", "Touboro", "Madingring"],
+    
+
+}
+
     const divisions = regionData[region] || []
+    const subdivisions = divisionData[division] || []
 
     const [formData,setFormData] = useState({
         givenNames:'',
@@ -268,6 +341,33 @@ return(
 
 
                         </div>
+
+                              <div>
+                            <select
+                                value={subdivision}
+                                onChange={(e) => {setSubdivisions(e.target.value); }}
+                            >
+                                <option value="">Select a subdivision</option>
+                                {
+                                    divisions.map((s, index) =>(
+                                        <option key={index} value={s}>
+                                            {s}
+                                        </option>
+                                    ))
+                                }
+
+                            </select>
+
+
+                        </div>
+
+
+
+
+
+
+
+                             
                          <div>
                             <label className="block text-sm font-medium text-gray-700 mb-1">Birth place</label>
                             <input type="text" name="birthPlace" value={formData.birthPlace} onChange={handleChange} placeholder="Birth place" required
