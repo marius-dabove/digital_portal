@@ -11,8 +11,53 @@ function BirthCertificatePersonal(){
     const [region, setRegions] = useState("")
 
     const regionData = {
-        Littoral: ["Wouri", "Nkam"],
-        Center: ["Mfoundi", "Nyong-et-Kelle"]
+ Littoral: ["Wouri", "Nkam","Moungo","Sanaga-Maritime"],
+ WEST:["Bamboutos","Koung-Nki","Mifi","Noun","Haut-plateaux","Haut-Nkam","NDE"],
+ADAMAOUA:[ 
+"Djérem",
+"Faro-et-Déo",
+"Mayo-Banyo",
+"Mbéré",
+"Vina"],
+ FARNORTH:[
+        "Diamaré",
+"Logone-et-Chari",
+"Mayo-Danay",
+"Mayo-Kani",
+"Mayo-Sava",
+"Mayo-Tsanaga"],
+NORTH:[
+    "Bénoué",
+"Faro",
+"Mayo-Louti",
+"Mayo-Rey"],
+NORTHWEST:[
+    "Boyo",
+"Bui",
+"Donga-Mantung",
+"Menchum",
+"Mezam",
+"Momo",
+"Ngoketunjia"
+        ],
+EAST:[
+    "Boumba-et-Ngoko",
+"Haut-Nyong",
+"Kadey",
+"Lom-et-Djérem"],
+SOUTHWEST:[
+   " Fako",
+"Koupé-Manengouba",
+"Lebialem",
+"Manyu",
+"Meme",
+"Ndian"],
+SOUTH:[
+    "Dja-et-Lobo",
+"Mvila",
+"Océan",
+"Vallée-du-Ntem"],
+CENTRE: ["Mfoundi", "Nyong-et-Kelle","Mbam et kim","Mbam et Inobou","Lekié","Haute-Sanaga","Nyong-et-Soo","Mefou-et Afamba","Nyong-et-MFoumou"]
     }
 
     const divisions = regionData[region] || []
